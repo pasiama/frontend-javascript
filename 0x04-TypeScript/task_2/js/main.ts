@@ -63,3 +63,39 @@ interface DirectorInterface {
     console.log(employee3 instanceof Director); // Output: true
     console.log(employee3.workFromHome()); // Output: Working from home
     
+
+    // DirectorInterface
+interface DirectorInterface {
+      workFromHome(): string;
+      getCoffeeBreak(): string;
+      workDirectorTasks(): string;
+    }
+    
+    // TeacherInterface
+    interface TeacherInterface {
+      workFromHome(): string;
+      getCoffeeBreak(): string;
+      workTeacherTasks(): string;
+    }
+    
+
+    
+    // Type predicate to check if an employee is a Director
+    function isDirector(employee: Director | Teacher): employee is Director {
+      return employee instanceof Director;
+    }
+    
+    // Function to execute work based on the employee type
+    function executeWork(employee: Director | Teacher): void {
+      if (isDirector(employee)) {
+        console.log(employee.workDirectorTasks());
+      } else {
+        console.log(employee.workTeacherTasks());
+      }
+    }
+    
+  
+    // Example Usage
+    executeWork(createEmployee(200)); // Output: Getting to work
+    executeWork(createEmployee(1000)); // Output: Getting to director tasks
+    
