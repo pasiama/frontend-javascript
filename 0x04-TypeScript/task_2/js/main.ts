@@ -104,12 +104,14 @@ interface DirectorInterface {
 type Subjects = "Math" | "History";
 
 // Function to teach a class
-function teachClass(todayClass: Subjects): string {
-  if (todayClass === "Math") {
-    return "Teaching Math";
-  } else if (todayClass === "History") {
-    return "Teaching History";
-  }
+function teachClass(todayClass: Subjects): string | undefined {
+      if (todayClass === "Math") {
+            return "Teaching Math";
+      } else if (todayClass === "History") {
+            return "Teaching History";
+      }
+      
+      return undefined;
 }
 
 // Example Usage
