@@ -19,3 +19,20 @@ interface Teacher {
     
     console.log(teacher3);
     
+
+// Define the Directors interface that extends Teacher
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+// Create an example object for Directors
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17,
+};
+
+// Log the object
+console.log(director1);
